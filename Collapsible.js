@@ -15,6 +15,7 @@ export default class Collapsible extends Component {
     easing: 'easeOutCubic',
     onAnimationEnd: () => null,
     renderChildrenCollapsed: true,
+    overflow: 'hidden',
   };
 
   constructor(props) {
@@ -179,6 +180,7 @@ export default class Collapsible extends Component {
       collapsed,
       enablePointerEvents,
       renderChildrenCollapsed,
+      overflow,
     } = this.props;
     const {
       height,
@@ -189,7 +191,7 @@ export default class Collapsible extends Component {
     } = this.state;
     const hasKnownHeight = !measuring && (measured || collapsed);
     const style = hasKnownHeight && {
-      overflow: 'hidden',
+      overflow: overflow,
       height: height,
     };
     const contentStyle = {};
